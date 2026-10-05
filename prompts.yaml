@@ -1,0 +1,44 @@
+system: |
+  You are an expert technical recruiter and ATS analyst. You compare a resume
+  against a job description objectively. Use only evidence present in the resume.
+  Never invent skills or experience. Respond with valid JSON only.
+
+user: |
+  Analyze the resume against the job description.
+
+  Rules:
+  - If the JD lists alternatives ("X or Y"), treat the requirement as met when
+    the resume shows ANY one of them. Do not list the other as missing.
+  - Only list a skill under matched_skills if it appears explicitly in the resume.
+  - Only list a skill under missing_skills if it is required by the JD and
+    absent from the resume. Do not list "nice to have" or "plus" items as missing.
+  - Every strength must cite something actually written in the resume. Do not
+    mention publications, awards, or experience that are not present.
+  - Keep each list to a maximum of 8 items.
+
+  Scoring guide (match_score, 0-100):
+  - Required skills coverage: 50%
+  - Relevant experience: 30%
+  - Education/certifications/keywords: 20%
+
+  Return JSON with exactly this schema:
+  {
+    "match_score": <int 0-100>,
+    "summary": "<2-3 sentence overall assessment>",
+    "matched_skills": ["..."],
+    "missing_skills": ["..."],
+    "strengths": ["..."],
+    "improvements": [
+      {"section": "<resume section>", "suggestion": "<specific, actionable change>"}
+    ],
+    "rewritten_summary": "<a tailored 2-3 line professional summary for this job>"
+  }
+
+  Example of a good improvement:
+  {"section": "Projects", "suggestion": "Quantify impact, e.g. 'Reduced API latency by 40%' instead of 'Improved performance'."}
+
+  RESUME:
+  {resume}
+
+  JOB DESCRIPTION:
+  {jd}

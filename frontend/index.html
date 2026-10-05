@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Resume × JD Matcher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="glow"></div>
+
+<main>
+  <header class="hero">
+    <span class="tag"><i></i> AI · NLP · Groq</span>
+    <h1>Resume <em>×</em> JD Matcher</h1>
+    <p class="sub">Upload your resume, add a job description as text or PDF, and get an instant AI match analysis.</p>
+  </header>
+
+  <form id="form" class="card">
+    <div class="field">
+      <div class="field-label"><b>01</b> Resume</div>
+      <label class="drop" id="resumeDrop" for="resume">
+        <input type="file" id="resume" accept=".pdf,.txt" class="sr">
+        <span class="drop-icon">↑</span>
+        <span class="drop-text" id="resumeName">Drop your resume here or <u>browse</u></span>
+        <small>PDF or TXT</small>
+      </label>
+    </div>
+
+    <div class="field">
+      <div class="label-row">
+        <div class="field-label"><b>02</b> Job description</div>
+        <div class="tabs">
+          <button type="button" class="tab active" data-tab="text">Paste text</button>
+          <button type="button" class="tab" data-tab="pdf">Upload PDF</button>
+        </div>
+      </div>
+
+      <div id="paneText" class="pane">
+        <textarea id="jd" rows="8" placeholder="Paste the job description here..."></textarea>
+      </div>
+
+      <div id="panePdf" class="pane hidden">
+        <label class="drop" id="jdDrop" for="jdFile">
+          <input type="file" id="jdFile" accept=".pdf,.txt" class="sr">
+          <span class="drop-icon">↑</span>
+          <span class="drop-text" id="jdName">Drop the job description PDF here or <u>browse</u></span>
+          <small>PDF or TXT</small>
+        </label>
+      </div>
+    </div>
+
+    <button type="submit" id="btn"><span id="btnText">Analyze match</span><i>→</i></button>
+  </form>
+
+  <div id="error" class="error hidden"></div>
+
+  <div id="loader" class="loader hidden">
+    <div class="spinner"></div>
+    <p id="loaderText">Reading your resume…</p>
+  </div>
+
+  <section id="results" class="results hidden">
+    <div class="card score-card reveal" style="--d:0">
+      <div class="ring" id="ring"><span id="score">0</span></div>
+      <div>
+        <div class="kicker">Match score</div>
+        <p id="summary"></p>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card reveal" style="--d:1"><h3>Matched skills</h3><div id="matched" class="chips ok"></div></div>
+      <div class="card reveal" style="--d:2"><h3>Missing skills</h3><div id="missing" class="chips miss"></div></div>
+    </div>
+
+    <div class="card reveal" style="--d:3"><h3>Strengths</h3><ul id="strengths"></ul></div>
+    <div class="card reveal" style="--d:4"><h3>Suggested improvements</h3><ul id="improvements"></ul></div>
+    <div class="card reveal" style="--d:5"><h3>Tailored summary</h3><p id="rewritten" class="quote"></p></div>
+  </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
