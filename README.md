@@ -1,4 +1,23 @@
-# Resume × JD Matcher
+# NLP Based Resume Analyzer
+
+*(Resume × JD Matcher)*
+
+## Student Details
+
+| Field | Details |
+|---|---|
+| **Name** | Om Jaiswal |
+| **Registration Number** | 23FE10CDS00389 |
+| **Branch** | B.Tech Computer Science (Data Science Engineering) |
+| **University** | Manipal University Jaipur |
+| **Batch** | F |
+| **Project Title** | NLP Based Resume Analyzer |
+| **GitHub Username** | [jswlom](https://github.com/jswlom) |
+| **Training Program** | *[Add training program name, duration and trainer/organization here]* |
+
+---
+
+## Overview
 
 An NLP project that uses a Large Language Model (via the **Groq API**) to compare a resume against a job description. It returns a match score, matched and missing skills, strengths, actionable resume improvements, and a tailored professional summary, all as structured JSON rendered in a clean web interface.
 
@@ -209,4 +228,7 @@ If the model is ever retired by the provider, change `model` here. No code chang
 
 ## Author
 
-Om. NLP course project.
+**Om Jaiswal** | Reg. No. 23FE10CDS00389 | B.Tech CSE (Data Science Engineering), Batch F, Manipal University Jaipur
+GitHub: [@jswlom](https://github.com/jswlom)
+
+NLP course project submission: *NLP Based Resume Analyzer*.
