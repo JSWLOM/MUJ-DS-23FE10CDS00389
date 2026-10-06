@@ -13,7 +13,7 @@
 | **Batch** | F |
 | **Project Title** | NLP Based Resume Analyzer |
 | **GitHub Username** | [jswlom](https://github.com/jswlom) |
-| **Training Program** | *[Add training program name, duration and trainer/organization here]* |
+
 
 ---
 
