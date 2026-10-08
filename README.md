@@ -136,7 +136,7 @@ uvicorn main:app --reload
 ```
 
 ### 6. Open the app
-Go to **http://127.0.0.1:8000**
+Go to **https://resume-analyzer-rouge-psi.vercel.app/**
 
 ---
 
